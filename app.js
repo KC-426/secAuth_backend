@@ -40,6 +40,11 @@ app.use('/api/v1/plan', subscriptionPlanRouter)
 app.use('/api/v1/order', orderRouter)
 app.use('/api/v1/payment', paymentRouter)
 
+app.use("/", (req, res) => {
+  console.log("Working ");
+  res.send("WORKING");
+});
+
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
