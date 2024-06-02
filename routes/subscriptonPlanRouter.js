@@ -6,8 +6,9 @@ import {
   addPlan,
   updatePlan,
 } from "../controller/subscriptionPlanController.js";
+import userAuth from "../middleware/auth.js";
 
-router.route("/add/plan/:userId").post(addPlan);
-router.route("/changePlan/:userId/:planId").put(updatePlan);
+router.route("/add/plan/:userId").post(userAuth, addPlan);
+router.route("/changePlan/:userId/:planId").put(userAuth, updatePlan);
 
 export default router;
