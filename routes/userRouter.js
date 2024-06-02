@@ -20,7 +20,7 @@ const upload = multer({
 });
 
 router.route("/register/new/user").post(registerUser);
-router.route("/login/user").get(userLogin);
+router.route("/login/user").post(userLogin);
 router.route("/get/all/users").get(getAllUsers);
 router.route("/get/user/:userId").get(getUserById);
 router.route("/get/all/users/count").get(getAllUsersCount);
