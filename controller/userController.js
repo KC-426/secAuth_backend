@@ -81,12 +81,12 @@ export const userLogin = async (req, res) => {
     const { email, password } = req.body;
     const findUser = await userSchema.findOne({ email });
     if (!findUser) {
-      return res.status(500).json({ message: "Please sign up !!" });
+      return res.status(404).json({ message: "Please sign up !!" });
     }
 
     const isMatchPassword = await bcrypt.compare(password, findUser.password);
     if (!isMatchPassword) {
-      return res.status(500).json({ message: "Incorrect password" });
+      return res.status(401).json({ message: "Incorrect password" });
     }
 
     const token = jwt.sign(

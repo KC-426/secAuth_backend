@@ -30,7 +30,7 @@ export const editProject = async (req, res) => {
     const updatedData = req.body;
 
     const findproject = await projectSchema.findById(projectId);
-    if (!findproject || findProject.length <= 0) {
+    if (!findproject || findproject.length <= 0) {
       return res.status(404).json({ message: "Project not found !" });
     }
 

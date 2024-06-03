@@ -60,7 +60,7 @@ export const paymentOrder = async (req, res) => {
 
     await orderData.save();
 
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       message: "Razorpay order created successfully",
       order,
